@@ -61,9 +61,7 @@ if (product_name == "ohos-sdk") {
   }
 
   group("make_inner_kits") {
-    # PEM Modify
-    # deps = [ "$root_build_dir/build_configs:inner_kits" ]
-    deps = []
+    deps = [ "$root_build_dir/build_configs:inner_kits" ]
   }
 
   group("build_all_test_pkg") {
