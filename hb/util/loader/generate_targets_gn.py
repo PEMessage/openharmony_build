@@ -86,7 +86,10 @@ def gen_targets_gn(parts_targets, config_output_dir):
         if 'test' in part_labels:
             parts_test_list.append(part_labels.get('test'))
     parts_list_gni_file = os.path.join(config_output_dir, 'parts_list.gni')
-    parts_list_content = '"{}",'.format('",\n  "'.join(parts_list))
+    if parts_list:
+        parts_list_content = '"{},'.format('",\n  "'.join(parts_list))
+    else:
+        parts_list_content = ''
     write_file(parts_list_gni_file,
                PARTS_LIST_GNI_TEMPLATE.format(parts_list_content))
     LogUtil.hb_info(
