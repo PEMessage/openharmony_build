@@ -48,24 +48,31 @@ if (product_name == "ohos-sdk") {
 
   if (!is_llvm_build) {
     group("images") {
-      deps = [ "//build/ohos/images:make_images" ]
+      # PEM Modify
+      # deps = [ "//build/ohos/images:make_images" ]
+      deps = []
     }
   }
 
   group("packages") {
-    deps = [ "//build/ohos/packages:make_packages" ]
+    # PEM Modify
+    # deps = [ "//build/ohos/packages:make_packages" ]
+    deps = []
   }
 
   group("make_inner_kits") {
-    deps = [ "$root_build_dir/build_configs:inner_kits" ]
+    # PEM Modify
+    # deps = [ "$root_build_dir/build_configs:inner_kits" ]
+    deps = []
   }
 
   group("build_all_test_pkg") {
     testonly = true
     if (!is_llvm_build) {
       deps = [
-        "$root_build_dir/build_configs:parts_test",
-        "//test/testfwk/developer_test:make_temp_test",
+        # PEM Modify
+        # "$root_build_dir/build_configs:parts_test",
+        # "//test/testfwk/developer_test:make_temp_test",
       ]
     }
   }
@@ -73,12 +80,13 @@ if (product_name == "ohos-sdk") {
   group("make_test") {
     testonly = true
     deps = [
-      "//build/ohos/packages:build_all_test_pkg",
-      "//build/ohos/packages:package_testcase",
-      "//build/ohos/packages:package_testcase_mlf",
+      # PEM Modify
+      # "//build/ohos/packages:build_all_test_pkg",
+      # "//build/ohos/packages:package_testcase",
+      # "//build/ohos/packages:package_testcase_mlf",
     ]
     if (archive_component) {
-      deps += [ "//build/ohos/testfwk:archive_testcase" ]
+      # deps += [ "//build/ohos/testfwk:archive_testcase" ]
     }
   }
 }

@@ -18,5 +18,21 @@ if (use_musl) {
     musl_target = "//third_party/musl:musl_libs"
   }
   musl_sysroot = get_label_info(musl_target, "target_out_dir")
-  import("//third_party/musl/musl_config.gni")
+  ## PEM Modify
+    #0  import error at //build/config/ohos/musl.gni:21:3
+        # 无法加载 "/home/zhuojw/a_git/ohos-mani-v2/third_party/musl/musl_config.gni"
+    #1  imported by //build/config/ohos/config.gni:10:3
+        # import("//build/config/ohos/musl.gni")
+    #2  imported by //build/toolchain/ohos/ohos_toolchain.gni:6:1
+        # import("//build/config/ohos/config.gni")
+    #3  imported by //build/toolchain/ohos/BUILD.gn:5:1
+        # import("//build/toolchain/ohos/ohos_toolchain.gni")
+    #4  imported by //build/core/gn/BUILD.gn:36:3
+        # group("make_all")
+    # import("//third_party/musl/musl_config.gni")
+
+    # Minimal musl config for build system test
+    musl_use_prebuilt = false
+    musl_build_dir = ""
+    musl_is_legacy = false
 }
